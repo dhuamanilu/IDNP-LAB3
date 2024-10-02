@@ -48,16 +48,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         unregisterReceiver(batteryBroadcastReceiver);
+        Log.d(TAG, "BroadcastReceiver desregistrado satisfactoriamente.");
         super.onPause();
     }
 
     @Override
-    protected void onResume(){
-
-        registerReceiver(batteryBroadcastReceiver,intentFilter);
-
+    protected void onResume() {
+        registerReceiver(batteryBroadcastReceiver, intentFilter);
+        Log.d(TAG, "BroadcastReceiver registrado satisfactoriamente.");
         super.onResume();
     }
+
     private void readFromFile(){
         try {
             FileInputStream fileInputStream = openFileInput("datos.txt");
